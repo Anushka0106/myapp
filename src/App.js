@@ -1,25 +1,31 @@
-import logo from './logo.svg';
+import React from 'react';
+import './component/imgCard';
 import './App.css';
 
 function App() {
+  const data = [
+    // An array of card objects with title, desc, and image properties
+    // For example: { title: 'Card Title', desc: 'Card Description', image: 'image_url.jpg' }
+  ];
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <h1>Card</h1>
+      <div className="row">
+        {data.map((card, index) => (
+          <div key={index}>
+            <imgCard
+              title={card.title}
+              desc={card.desc}
+              imgUrl={card.image}
+            />
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
 
 export default App;
+
+
